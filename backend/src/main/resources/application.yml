@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    include:
+      - db
+  ai:
+    openai:
+      chat:
+        options:
+          model: gpt-3.5-turbo
+          max-tokens: '500'
+          temperature: '0.7'
+      api-key: ${OPENAI_API_KEY}
