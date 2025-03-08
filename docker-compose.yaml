@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  vue:
+    image: blog-mate-fe:latest
+    container_name: fe
+    restart: always
+    networks:
+      - blogMateNet
+    ports:
+      - 80:80
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - spring
+  spring:
+    image: blog-mate-be:latest
+    container_name: be
+    restart: always
+    networks:
+      - blogMateNet
+    ports:
+      - 8080:8080
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+networks:
+  blogMateNet:
+    name: blogMateNet
+    driver: bridge        

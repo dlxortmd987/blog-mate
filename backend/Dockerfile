@@ -25,4 +25,4 @@ COPY --chown=backend --from=builder application/ ./
 RUN chmod -R 755 /backend
 
 EXPOSE 8080
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]

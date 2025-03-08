@@ -1,6 +1,6 @@
 spring:
   config:
-    import: env-local.properties
+    import: env-docker.properties
   devtools:
     livereload:
       enabled: true
