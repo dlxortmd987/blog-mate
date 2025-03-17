@@ -1,0 +1,28 @@
+logging:
+  level:
+    com:
+      blogmate: DEBUG
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+        SQL: DEBUG
+      springframework: debug
+    org.springframework.ai.chat.client.advisor: DEBUG
+
+spring:
+  config:
+    import: env-local.properties
+  datasource:
+    url: jdbc:mysql://localhost:3306/blogmate
+    username: root
+    password: 1234!
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  ai:
+    openai:
+      chat:
+        options:
+          model: gpt-4o
+      api-key: ${OPENAI_API_KEY}
