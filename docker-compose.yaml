@@ -12,8 +12,9 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-    volumes:
-      - ./frontend/nginx.conf:/etc/nginx/conf.d/default.conf
+    # 볼륨 마운트 제거 또는 경로 일치시키기
+    # volumes:
+    #   - ./frontend/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - spring
   spring:
@@ -32,4 +33,4 @@ services:
 networks:
   blogMateNet:
     name: blogMateNet
-    driver: bridge        
+    driver: bridge
