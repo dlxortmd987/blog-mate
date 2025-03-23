@@ -17,6 +17,7 @@ public class PromptBuilder {
                 There are two options for customization:
                 	1.	%d <= Blog Content Length <= %d
                 	2.	Blog Content Type: %s
+                	3.  Blog Content Style: %s
                 
                 Draft: %s
                 
@@ -32,6 +33,7 @@ public class PromptBuilder {
                 contentRawData.contentLength().getLowerBound(),
                 contentRawData.contentLength().getUpperBound(),
                 contentRawData.contentType(),
+                contentRawData.contentStyle(),
                 contentRawData.draft()
         );
         ResponseFormat responseFormat = ResponseFormat.builder()
