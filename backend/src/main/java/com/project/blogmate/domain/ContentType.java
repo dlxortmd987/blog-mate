@@ -6,6 +6,8 @@ import java.util.Optional;
 public enum ContentType {
     FOOD,
     PROGRAMMING,
+    TRAVEL,
+    LIFESTYLE,
     NONE,
     ;
 
