@@ -141,8 +141,8 @@ export default {
     const contentTypes = [
       { value: 'PROGRAMMING', label: '프로그래밍/기술' },
       { value: 'FOOD', label: '음식/요리' },
-      // { value: 'TRAVEL', label: '여행' },
-      // { value: 'LIFESTYLE', label: '라이프스타일' },
+      { value: 'TRAVEL', label: '여행' },
+      { value: 'LIFESTYLE', label: '라이프스타일' },
       { value: 'NONE', label: '일반' }
     ];
 
