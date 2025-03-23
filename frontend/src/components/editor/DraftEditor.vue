@@ -122,7 +122,8 @@ export default {
   emits: ['update:modelValue', 'transform'],
 
   setup(props, { emit }) {
-    const editor = ref(null);
+    const editor = ref('');
+    const content = ref(props.modelValue);
 
     const styles = [
       { value: 'PROFESSIONAL', label: '전문적인' },
@@ -185,9 +186,7 @@ export default {
 
     // 콘텐츠가 있는지 확인
     const hasContent = computed(() => {
-      if (!editor.value) return false;
-      const content = editor.value.innerText.trim();
-      return content.length > 10;
+      return content.value.trim().length > 3;
     });
 
     // 에디터 명령 실행 함수
@@ -200,7 +199,8 @@ export default {
     // 콘텐츠 업데이트 함수
     function updateContent() {
       if (editor.value) {
-        emit('update:modelValue', editor.value.innerHTML);
+        content.value = editor.value.innerHTML;
+        emit('update:modelValue', content.value);
       }
     }
 
@@ -226,6 +226,7 @@ export default {
     onMounted(() => {
       if (editor.value && props.modelValue) {
         editor.value.innerHTML = props.modelValue;
+        content.value = props.modelValue;
       }
     });
 
@@ -233,6 +234,7 @@ export default {
     watch(() => props.modelValue, (newValue) => {
       if (editor.value && newValue !== editor.value.innerHTML) {
         editor.value.innerHTML = newValue;
+        content.value = newValue;
       }
     });
 
